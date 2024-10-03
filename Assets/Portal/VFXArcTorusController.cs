@@ -11,8 +11,8 @@ public class VFXArcController : MonoBehaviour
     private float timeToFullArc = 5f; // Time to reach full arc (in seconds)
     private float initialSpawnRate = 0f; // Initial spawn rate (0 = no particles emitted)
     private int maxSpawnRate = 400000; // Adjust this to control how many particles spawn
-    private int startSpawnRate = 400; // Start spawn rate (0 = no particles emitted)
-    private float duration = 10f; // Duration to increase spawn rate (in seconds)
+    private int startSpawnRate = 4; // Start spawn rate (0 = no particles emitted)
+    private float duration = 50f; // Duration to increase spawn rate (in seconds)
     private float elapsedTime = 0f; // Elapsed time since the start of the duration
 
     void Start()
@@ -22,8 +22,13 @@ public class VFXArcController : MonoBehaviour
         vfx.SetInt(spawnRateParameter, (int)initialSpawnRate); // Set spawn rate to 0 at start
     }
 
+    // Husk at implementere tids intervaller for at gøre spawn mængden bedre
+    // Eventuelt implementer en startup time for hele baduljen
+
+
     void Update()
     {
+       
         // Check if spacebar is held down
         if (Input.GetKey(KeyCode.Space))
         {
@@ -53,7 +58,8 @@ public class VFXArcController : MonoBehaviour
         // Increase the spawn rate over the specified duration
         elapsedTime += Time.deltaTime;
         float t = Mathf.Clamp01(elapsedTime / duration);
-        int currentSpawnRate = (int)Mathf.Lerp(startSpawnRate, maxSpawnRate, t);
+        int currentSpawnRate = (int)Mathf.Lerp(startSpawnRate, maxSpawnRate, Mathf.Cos(t)/2);
         vfx.SetInt(spawnRateParameter, currentSpawnRate);
+        print(currentSpawnRate);
     }
 }
