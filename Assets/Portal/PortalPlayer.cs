@@ -16,7 +16,7 @@ public class PortalPlayer : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero; // Movement direction
     private float rotationX = 0f; // Rotation on the x axis
     private float rotationY = 0f; // Rotation on the y axis
-    private float rotationZ = 0f;
+
     private float verticalVelocity = 0f; // Vertical velocity
     private bool isGrounded = false; // Check if the player is grounded
     
