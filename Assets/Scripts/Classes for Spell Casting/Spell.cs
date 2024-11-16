@@ -9,6 +9,10 @@ public abstract class Spell : MonoBehaviour
     public float Cooldown { get; protected set; }
     public float ManaCost { get; protected set; }
     public float CastTime { get; protected set; }
+    public float Damage { get; protected set; }
+    public Transform CastPoint { get; protected set; }
+    public Quaternion CastRotation { get; protected set; }
+
 
     public abstract void Cast();
 }
