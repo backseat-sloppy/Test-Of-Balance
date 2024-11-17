@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class FireBall01 : Spell
 {
-    private Vector3 castPoint;
-    private Quaternion castRotation;
     public GameObject Fireball;
+
     public FireBall01()
     {
         Name = "Fire Ball";
@@ -14,13 +13,18 @@ public class FireBall01 : Spell
         Cooldown = 5f;
         ManaCost = 10f;
         CastTime = 0.5f;
-        
+        Damage = 10f; // Set the damage value
     }
 
     public override void Cast()
     {
-       GameObject fireBall = Instantiate(Fireball, castPoint.position, castRotation.rotation) as GameObject;
+        GameObject fireBall = Instantiate(Fireball, CastPoint.position, CastPoint.rotation) as GameObject;
+        FireballProjectile fireballProjectile = fireBall.GetComponent<FireballProjectile>();
+        if (fireballProjectile != null)
+        {
+            fireballProjectile.damage = Damage; // Set the damage value on the projectile
+        }
 
-        Debug.Log("Castinng " + name);
+        Debug.Log("Casting " + Name);
     }
 }
