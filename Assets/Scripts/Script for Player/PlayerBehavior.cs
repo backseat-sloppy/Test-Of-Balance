@@ -17,7 +17,7 @@ public class PlayerBehavior : MonoBehaviour
         // This moves the player
         Vector2 movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         Vector3 movement = new Vector3(-movementInput.x, 0, -movementInput.y);
-        rb.velocity = movement * speed;
+        rb.linearVelocity = movement * speed;
 
         // This forces the player to look in the direction of curser
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -34,6 +34,4 @@ public class PlayerBehavior : MonoBehaviour
         }
 
     }
-
-
 }

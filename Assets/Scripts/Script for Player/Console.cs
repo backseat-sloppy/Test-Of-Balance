@@ -4,25 +4,19 @@ using UnityEngine;
 
 public class Console : MonoBehaviour
 {
-    private SpellSlotManager spellSlotManager;
+    private SpellFactory spellFactory;
 
     void Start()
     {
-        spellSlotManager = GetComponent<SpellSlotManager>();
+        spellFactory = GetComponent<SpellFactory>();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            AddFireBallSpell();
+            spellFactory.AddFireBallSpell();
         }
-    }
-
-    private void AddFireBallSpell()
-    {
-        FireBall01 fireBallSpell = new FireBall01();
-        spellSlotManager.AddSpell(fireBallSpell.ID, fireBallSpell);
-        Debug.Log("FireBall01 spell added to the spell list");
+       
     }
 }

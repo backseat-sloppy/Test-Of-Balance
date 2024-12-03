@@ -23,4 +23,18 @@ public class SpellSlotManager : MonoBehaviour
     {
         spellManager.AssignSpellToSlot(slotIndex, spellID);
     }
+
+    public void AssignSpellToNextAvailableSlot(int spellID)
+    {
+        for (int i = 0; i < spellManager.skillSlots.Length; i++)
+        {
+            if (spellManager.skillSlots[i] == null)
+            {
+                AssignSpellToSlot(i, spellID);
+                Debug.Log("Spell assigned to slot " + i);
+                return;
+            }
+        }
+        Debug.Log("No available slots to assign the spell");
+    }
 }

@@ -5,14 +5,14 @@ using UnityEngine;
 public class SpellManager : MonoBehaviour
 {
     public Dictionary<int, Spell> availableSpells = new Dictionary<int, Spell>();
-    private Spell[] skillSlots = new Spell[5];
+    public Spell[] skillSlots = new Spell[5]; // Changed to public for access in SpellSlotManager
 
     public SpellManager()
     {
         // Optionally add a basic spell as default
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
