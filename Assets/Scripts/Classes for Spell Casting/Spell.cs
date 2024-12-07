@@ -4,15 +4,13 @@ using UnityEngine;
 
 public abstract class Spell : MonoBehaviour
 {
-    public string Name { get; protected set; }
-    public int ID { get; protected set; }
-    public float Cooldown { get; protected set; }
-    public float ManaCost { get; protected set; }
-    public float CastTime { get; protected set; }
-    public float Damage { get; protected set; }
-    public Transform CastPoint { get; protected set; }
-    public Quaternion CastRotation { get; protected set; }
-
+    public int ID { get; set; }
+    public string Name { get; set; }
+    public float Cooldown { get; set; }
+    public float ManaCost { get; set; }
+    public float CastTime { get; set; }
+    public float Damage { get; set; }
+    public Transform CastPoint { get; set; }
 
     public abstract void Cast();
 }

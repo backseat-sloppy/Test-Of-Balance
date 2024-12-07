@@ -7,12 +7,7 @@ public class SpellManager : MonoBehaviour
     public Dictionary<int, Spell> availableSpells = new Dictionary<int, Spell>();
     public Spell[] skillSlots = new Spell[5]; // Changed to public for access in SpellSlotManager
 
-    public SpellManager()
-    {
-        // Optionally add a basic spell as default
-    }
-
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -40,18 +35,19 @@ public class SpellManager : MonoBehaviour
     {
         if (slotIndex < 0 || slotIndex >= skillSlots.Length)
         {
-            Debug.Log("Invalid slot index");
+            Debug.Log("Invalid slot index: " + slotIndex);
             return;
         }
 
         Spell spell = skillSlots[slotIndex];
         if (spell != null)
         {
+            Debug.Log("Casting spell from slot " + slotIndex);
             spell.Cast();
         }
         else
         {
-            Debug.Log("No spell assigned to this slot");
+            Debug.Log("No spell assigned to slot " + slotIndex);
         }
     }
 
@@ -59,17 +55,18 @@ public class SpellManager : MonoBehaviour
     {
         if (slotIndex < 0 || slotIndex >= skillSlots.Length)
         {
-            Debug.Log("Invalid slot index");
+            Debug.Log("Invalid slot index: " + slotIndex);
             return;
         }
 
         if (availableSpells.TryGetValue(spellID, out Spell spell))
         {
             skillSlots[slotIndex] = spell;
+            Debug.Log("Spell with ID " + spellID + " assigned to slot " + slotIndex);
         }
         else
         {
-            Debug.Log("Spell not found");
+            Debug.Log("Spell with ID " + spellID + " not found in availableSpells");
         }
     }
 }

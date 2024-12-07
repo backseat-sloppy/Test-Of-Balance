@@ -5,10 +5,12 @@ using UnityEngine;
 public class Console : MonoBehaviour
 {
     private SpellFactory spellFactory;
+    private SpellSlotManager spellSlotManager;
 
     void Start()
     {
         spellFactory = GetComponent<SpellFactory>();
+        spellSlotManager = GetComponent<SpellSlotManager>();
     }
 
     void Update()
