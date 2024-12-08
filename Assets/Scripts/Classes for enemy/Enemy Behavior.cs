@@ -4,13 +4,13 @@ using UnityEngine;
 public class EnemyBehavior : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    [SerializeField] private Transform targetToBash;
+   public Transform targetToBash;
     private bool moving = false;
     private float speed = 3f;
     private float strikeDistance = 2f;
     private float damage = 10f;
     private PlayerStats playerStats;
-    private float currentHealth = 40f; // Example health value
+    private float currentHealth = 30f; // Example health value
 
     void Awake()
     {

@@ -19,6 +19,5 @@ public class Console : MonoBehaviour
         {
             spellFactory.AddFireBallSpell();
         }
-       
     }
 }

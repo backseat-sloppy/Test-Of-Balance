@@ -155,9 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 677558d7e983ae744ae1f710c4affdac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 3228220399932568962}
-  speed: 10
-  SpellManager: {fileID: 561679774294862548}
 --- !u!114 &5346578416123042575
 MonoBehaviour:
   m_ObjectHideFlags: 0

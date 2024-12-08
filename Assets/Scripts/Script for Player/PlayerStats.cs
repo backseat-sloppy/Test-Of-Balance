@@ -43,7 +43,7 @@ public class PlayerStats : MonoBehaviour
             currentHealth = maxHealth;
         }
 
-        Debug.Log("Current Health: " + currentHealth);
+
         // Death
         if (currentHealth <= 0)
         {
