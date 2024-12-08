@@ -12,7 +12,6 @@ public class SpellSlotManager : MonoBehaviour
         {
             spellManager = GetComponent<SpellManager>();
         }
-        Debug.Log("SpellSlotManager initialized. SpellManager assigned.");
     }
 
     public void AddSpell(int spellID, Spell spell)

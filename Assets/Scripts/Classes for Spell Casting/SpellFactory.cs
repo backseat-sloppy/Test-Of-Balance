@@ -34,10 +34,7 @@ public class SpellFactory : MonoBehaviour
             allSpells[fireBallSpell.ID] = fireBallSpell;
             Debug.Log("FireBall01 spell initialized and added to allSpells");
         }
-        else
-        {
-            Debug.LogError("Fireball prefab is not assigned in the inspector");
-        }
+      
     }
 
     public void AddFireBallSpell()

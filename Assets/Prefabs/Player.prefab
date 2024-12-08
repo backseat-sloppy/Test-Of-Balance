@@ -65,6 +65,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -192,6 +195,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83092c7873a09a14f91853924c1ef0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &2942808495899092555
 MonoBehaviour:
   m_ObjectHideFlags: 0
