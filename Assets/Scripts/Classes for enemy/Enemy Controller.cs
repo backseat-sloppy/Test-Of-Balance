@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+
 
 public class EnemyController : MonoBehaviour
 {
@@ -20,17 +22,26 @@ public class EnemyController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            BearSpawner();
+            StartCoroutine(BearSpawner());
         }
     }
 
-    private void BearSpawner()
+
+     private IEnumerator BearSpawner()
     {
+        Debug.Log("Spawning bears");
         for (int i = 0; i < spawnPoints.Length; i++)
         {
             Instantiate(bearMadMan, spawnPoints[i].transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+            if (i == spawnPoints.Length - 1)
+            {
+                Debug.Log("All bears spawned");
+                i = 0;
+                yield break;
+            }
         }
-        BearSpawner();
-        
     }
+ 
+    
 }

@@ -6,6 +6,12 @@ public class SpellManager : MonoBehaviour
 {
     public Dictionary<int, Spell> availableSpells = new Dictionary<int, Spell>();
     public Spell[] skillSlots = new Spell[5]; // Changed to public for access in SpellSlotManager
+    private float[] lastCastTimes;
+
+    void Awake()
+    {
+        lastCastTimes = new float[skillSlots.Length];
+    }
 
     void Update()
     {
@@ -42,8 +48,17 @@ public class SpellManager : MonoBehaviour
         Spell spell = skillSlots[slotIndex];
         if (spell != null)
         {
-            Debug.Log("Casting spell from slot " + slotIndex);
-            spell.Cast();
+            float currentTime = Time.time;
+            if (currentTime - lastCastTimes[slotIndex] >= spell.Cooldown)
+            {
+                Debug.Log("Casting spell from slot " + slotIndex);
+                spell.Cast();
+                lastCastTimes[slotIndex] = currentTime;
+            }
+            else
+            {
+                Debug.Log("Spell in slot " + slotIndex + " is on cooldown");
+            }
         }
         else
         {

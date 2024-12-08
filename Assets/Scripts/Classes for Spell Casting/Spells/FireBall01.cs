@@ -5,15 +5,21 @@ using UnityEngine;
 public class FireBall01 : Spell
 {
     public GameObject Fireball;
+    private GameObject owner; // Reference to the owner of the fireball
 
     public FireBall01()
     {
         Name = "Fire Ball";
         ID = 1;
-        Cooldown = 5f;
+        Cooldown = 0.5f; // Set the cooldown to 0.5 seconds
         ManaCost = 10f;
         CastTime = 0.5f;
         Damage = 10f; // Set the damage value
+    }
+
+    public void SetOwner(GameObject owner)
+    {
+        this.owner = owner;
     }
 
     public override void Cast()
@@ -28,11 +34,10 @@ public class FireBall01 : Spell
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         Vector3 targetPosition;
-       
+
         if (Physics.Raycast(ray, out hit))
         {
             targetPosition = hit.point;
-            Debug.Log("Target position: " + targetPosition);
         }
         else
         {
@@ -46,8 +51,7 @@ public class FireBall01 : Spell
         {
             fireballProjectile.damage = Damage; // Set the damage value on the projectile
             fireballProjectile.SetTarget(targetPosition); // Set the target position
+            fireballProjectile.SetOwner(owner); // Set the owner of the fireball
         }
-
-        Debug.Log("Casting " + Name);
     }
 }

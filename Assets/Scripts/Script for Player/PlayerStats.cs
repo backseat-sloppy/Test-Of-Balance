@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour
     // Player stats
     // Health Related
     public float maxHealth = 100;
-    public float currentHealth;
+    public float currentHealth = 100;
     public float healthRegen = 1;
     public float armour = 0;
 
@@ -43,6 +43,7 @@ public class PlayerStats : MonoBehaviour
             currentHealth = maxHealth;
         }
 
+        Debug.Log("Current Health: " + currentHealth);
         // Death
         if (currentHealth <= 0)
         {

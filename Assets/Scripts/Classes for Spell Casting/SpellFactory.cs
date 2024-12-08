@@ -30,11 +30,11 @@ public class SpellFactory : MonoBehaviour
             FireBall01 fireBallSpell = spellObject.AddComponent<FireBall01>();
             fireBallSpell.Fireball = fireballPrefab; // Assign the Fireball prefab
             fireBallSpell.CastPoint = transform; // Assign a cast point, e.g., the transform of the SpellFactory
+            fireBallSpell.SetOwner(gameObject); // Set the owner to the SpellFactory or the player
 
             allSpells[fireBallSpell.ID] = fireBallSpell;
             Debug.Log("FireBall01 spell initialized and added to allSpells");
         }
-      
     }
 
     public void AddFireBallSpell()
